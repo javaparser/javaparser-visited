@@ -24,7 +24,7 @@ public class CommentGenerator {
         VoidVisitorAdapter<List<MethodDeclaration>> unDocumentedMethodCollector = new UnDocumentedMethodCollector();
         unDocumentedMethodCollector.visit(cu, methodDeclarations);
 
-        methodDeclarations.forEach(md -> md.setJavaDocComment(generateJavaDoc(md)));
+        methodDeclarations.forEach(md -> md.setJavadocComment(generateJavaDoc(md)));
 
         System.out.println(cu.toString());
     }
@@ -34,7 +34,7 @@ public class CommentGenerator {
         @Override
         public void visit(MethodDeclaration md, List<MethodDeclaration> collector) {
             super.visit(md, collector);
-            if(md.getJavaDoc() != null) {
+            if(md.getJavadoc()!= null) {
                 collector.add(md);
             }
         }
