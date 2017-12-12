@@ -3,12 +3,14 @@ package org.javaparser.examples;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.nodeTypes.NodeWithSimpleName;
 import com.github.javaparser.ast.visitor.VoidVisitor;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class VoidVisitorExample {
 
@@ -18,13 +20,16 @@ public class VoidVisitorExample {
 
         CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
 
-        VoidVisitor<?> methodNameVisitor = new MethodNamePrinter();
+        VoidVisitor<Void> methodNameVisitor = new MethodNamePrinter();
         methodNameVisitor.visit(cu, null);
         List<String> methodNames = new ArrayList<>();
         VoidVisitor<List<String>> methodNameCollector = new MethodNameCollector();
         methodNameCollector.visit(cu, methodNames);
         methodNames.forEach(n -> System.out.println("Method Name Collected: " + n));
-
+        
+        // or...
+        List<String> methodNamez = cu.findAll(MethodDeclaration.class).stream().map(NodeWithSimpleName::getNameAsString).collect(Collectors.toList());
+        // :-D
     }
 
     private static class MethodNamePrinter extends VoidVisitorAdapter<Void> {

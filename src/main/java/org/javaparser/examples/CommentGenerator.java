@@ -26,6 +26,11 @@ public class CommentGenerator {
 
         methodDeclarations.forEach(md -> md.setJavadocComment(generateJavaDoc(md)));
 
+        // or...
+        cu.findAll(MethodDeclaration.class).stream()
+                .filter(md -> !md.getJavadoc().isPresent())
+                .forEach(md -> md.setJavadocComment(generateJavaDoc(md)));
+
         System.out.println(cu.toString());
     }
 
@@ -34,7 +39,7 @@ public class CommentGenerator {
         @Override
         public void visit(MethodDeclaration md, List<MethodDeclaration> collector) {
             super.visit(md, collector);
-            if(md.getJavadoc()!= null) {
+            if(!md.getJavadoc().isPresent()) {
                 collector.add(md);
             }
         }

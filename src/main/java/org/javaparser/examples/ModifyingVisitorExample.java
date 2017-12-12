@@ -3,7 +3,6 @@ package org.javaparser.examples;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.FieldDeclaration;
-import com.github.javaparser.ast.expr.IntegerLiteralExpr;
 import com.github.javaparser.ast.visitor.ModifierVisitor;
 
 import java.io.FileInputStream;
@@ -31,11 +30,12 @@ public class ModifyingVisitorExample {
         public FieldDeclaration visit(FieldDeclaration fd, Void arg) {
             super.visit(fd, arg);
             fd.getVariables().forEach(v ->
-                    v.getInitializer().ifPresent(i -> {
-                        if (i instanceof IntegerLiteralExpr) {
-                            v.setInitializer(formatWithUnderscores(((IntegerLiteralExpr) i).getValue()));
-                        }
-                    }));
+                    v.getInitializer().ifPresent(i ->
+                            i.ifIntegerLiteralExpr(il ->
+                                    v.setInitializer(formatWithUnderscores(il.getValue()))
+                            )
+                    )
+            );
             return fd;
         }
     }
