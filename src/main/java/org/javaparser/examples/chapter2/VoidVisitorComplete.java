@@ -1,4 +1,4 @@
-package org.javaparser.examples;
+package org.javaparser.examples.chapter2;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
@@ -10,9 +10,9 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VoidVisitorExample {
+public class VoidVisitorComplete {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/ReversePolishNotation.java";
+    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/samples/ReversePolishNotation.java";
 
     public static void main(String[] args) throws Exception {
 

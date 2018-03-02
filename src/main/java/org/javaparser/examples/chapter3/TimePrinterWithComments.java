@@ -1,4 +1,4 @@
-package org.javaparser.examples;
+package org.javaparser.examples.chapter3;
 
 import java.time.LocalDateTime;
 

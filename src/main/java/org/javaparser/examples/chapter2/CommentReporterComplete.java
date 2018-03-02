@@ -1,4 +1,4 @@
-package org.javaparser.examples;
+package org.javaparser.examples.chapter2;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CommentReporter {
+public class CommentReporterComplete {
 
     private static final String FILE_PATH = "src/main/java/org/javaparser/examples/ReversePolishNotation.java";
 

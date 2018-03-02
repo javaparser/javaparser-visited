@@ -1,4 +1,4 @@
-package org.javaparser.examples;
+package org.javaparser.examples.chapter2;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
@@ -9,9 +9,9 @@ import com.github.javaparser.ast.visitor.ModifierVisitor;
 import java.io.FileInputStream;
 import java.util.regex.Pattern;
 
-public class ModifyingVisitorExample {
+public class ModifyingVisitorComplete {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/ReversePolishNotation.java";
+    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/samples/ReversePolishNotation.java";
 
     private static final Pattern LOOK_AHEAD_THREE = Pattern.compile("(\\d)(?=(\\d{3})+$)");
 

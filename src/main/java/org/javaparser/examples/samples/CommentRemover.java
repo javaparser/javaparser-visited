@@ -1,4 +1,4 @@
-package org.javaparser.examples;
+package org.javaparser.examples.samples;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;

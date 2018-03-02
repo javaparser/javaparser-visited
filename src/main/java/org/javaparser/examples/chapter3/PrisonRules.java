@@ -1,4 +1,4 @@
-package com.github.javaparser;
+package org.javaparser.examples.chapter3;
 
 
 public class PrisonRules /* Maybe use Runnable? */ extends Thread {
