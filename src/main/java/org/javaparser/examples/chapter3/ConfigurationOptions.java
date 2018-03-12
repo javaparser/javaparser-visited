@@ -14,7 +14,7 @@ public class ConfigurationOptions {
         JavaParser.setStaticConfiguration(parserConfiguration);
 
     }
-    
+
     public void ignoreFloatingComments() {
 
         ParserConfiguration parserConfiguration = new ParserConfiguration()
