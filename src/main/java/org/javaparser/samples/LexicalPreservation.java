@@ -1,4 +1,4 @@
-package org.javaparser.examples.samples;
+package org.javaparser.samples;
 
 // Hey, this is a comment
 

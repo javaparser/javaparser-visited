@@ -37,7 +37,7 @@ public class LexicalPreservationComplete {
         myClass = cu.getClassByName("MyNewClassName").get();
         myClass.setName("MyNewClassName");
         myClass.addModifier(Modifier.PUBLIC);
-        cu.setPackageDeclaration("org.javaparser.chapter4.examples");
+        cu.setPackageDeclaration("org.javaparser.samples");
         System.out.println(lpp.print(cu));
     }
 }

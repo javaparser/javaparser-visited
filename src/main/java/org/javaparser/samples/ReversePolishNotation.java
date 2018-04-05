@@ -1,4 +1,4 @@
-package org.javaparser.examples.samples;
+package org.javaparser.samples;
 
 import java.util.Stack;
 import java.util.stream.Stream;
