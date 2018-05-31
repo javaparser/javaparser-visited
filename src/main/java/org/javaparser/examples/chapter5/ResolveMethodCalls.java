@@ -14,9 +14,9 @@ public class ResolveMethodCalls {
     private static final String FILE_PATH = "src/main/java/org/javaparser/examples/chapter5/A.java";
 
     public static void main(String[] args) throws Exception {
-        TypeSolver combinedTypeSolver = new ReflectionTypeSolver();
+        TypeSolver typeSolver = new ReflectionTypeSolver();
 
-        JavaSymbolSolver symbolSolver = new JavaSymbolSolver(combinedTypeSolver);
+        JavaSymbolSolver symbolSolver = new JavaSymbolSolver(typeSolver);
         JavaParser.getStaticConfiguration().setSymbolResolver(symbolSolver);
 
         CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));

@@ -11,7 +11,6 @@ import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeS
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
 
 import java.io.File;
-import java.io.FileInputStream;
 
 public class ResolveTypeInContext {
 
@@ -30,7 +29,7 @@ public class ResolveTypeInContext {
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(combinedSolver);
         JavaParser.getStaticConfiguration().setSymbolResolver(symbolSolver);
 
-        CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
 
         FieldDeclaration fieldDeclaration = Navigator.findNodeOfGivenClass(cu, FieldDeclaration.class);
 
