@@ -1,6 +1,5 @@
 package org.javaparser.examples.chapter2;
 
-import org.javaparser.examples.chapter2.ModifyingVisitorComplete;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

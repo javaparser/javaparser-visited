@@ -11,7 +11,7 @@ import com.github.javaparser.symbolsolver.resolution.typesolvers.MemoryTypeSolve
 import org.easymock.EasyMock;
 import org.junit.Test;
 
-import java.io.FileInputStream;
+import java.io.File;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,7 +21,7 @@ public class MemoryTypeSolverComplete {
 
     @Test
     public void solveTypeInSamePackage() throws Exception {
-        CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
 
         ResolvedReferenceTypeDeclaration otherClass = EasyMock.createMock(ResolvedReferenceTypeDeclaration.class);
         EasyMock.expect(otherClass.getQualifiedName()).andReturn("org.javaparser.examples.chapter5.Bar");
