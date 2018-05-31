@@ -3,17 +3,17 @@ package org.javaparser.examples.chapter2;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
-import java.io.FileInputStream;
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CommentReporterComplete {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/ReversePolishNotation.java";
+    private static final String FILE_PATH = "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
 
         List<CommentReportEntry> comments = cu.getAllContainedComments()
                 .stream()

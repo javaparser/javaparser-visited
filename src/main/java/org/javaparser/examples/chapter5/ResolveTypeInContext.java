@@ -3,11 +3,9 @@ package org.javaparser.examples.chapter5;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.FieldDeclaration;
-import com.github.javaparser.resolution.types.ResolvedType;
+import com.github.javaparser.symbolsolver.JavaSymbolSolver;
 import com.github.javaparser.symbolsolver.javaparser.Navigator;
-import com.github.javaparser.symbolsolver.javaparsermodel.JavaParserFacade;
 import com.github.javaparser.symbolsolver.model.resolution.TypeSolver;
-
 import com.github.javaparser.symbolsolver.resolution.typesolvers.CombinedTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.JavaParserTypeSolver;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.ReflectionTypeSolver;
@@ -29,14 +27,14 @@ public class ResolveTypeInContext {
         combinedSolver.add(reflectionTypeSolver);
         combinedSolver.add(javaParserTypeSolver);
 
+        JavaSymbolSolver symbolSolver = new JavaSymbolSolver(combinedSolver);
+        JavaParser.getStaticConfiguration().setSymbolResolver(symbolSolver);
+
         CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
 
-        // Get the FieldDeclaration
         FieldDeclaration fieldDeclaration = Navigator.findNodeOfGivenClass(cu, FieldDeclaration.class);
 
-        // A FieldDeclaration could contain many variables: get the first one and get its JavaParser type
-        ResolvedType fieldType = JavaParserFacade.get(combinedSolver).convertToUsage(
-                fieldDeclaration.getVariables().get(0).getType(), fieldDeclaration);
-        System.out.println("Field type: " + fieldType.asReferenceType().getQualifiedName());
+        System.out.println("Field type: " + fieldDeclaration.getVariables().get(0).getType()
+                .resolve().asReferenceType().getQualifiedName());
     }
 }

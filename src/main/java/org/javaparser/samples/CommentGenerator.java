@@ -5,20 +5,20 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
-import java.io.FileInputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class CommentGenerator {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/ReversePolishNotation.java";
+    private static final String FILE_PATH = "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
 
     private static final Pattern FIND_UPPERCASE = Pattern.compile("(.)(\\p{Upper})");
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
 
         List<MethodDeclaration> methodDeclarations = new ArrayList<>();
         VoidVisitorAdapter<List<MethodDeclaration>> unDocumentedMethodCollector = new UnDocumentedMethodCollector();
