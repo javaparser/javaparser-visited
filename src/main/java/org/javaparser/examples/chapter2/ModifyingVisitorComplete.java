@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public class ModifyingVisitorComplete {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/samples/ReversePolishNotation.java";
+    private static final String FILE_PATH = "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
 
     private static final Pattern LOOK_AHEAD_THREE = Pattern.compile("(\\d)(?=(\\d{3})+$)");
 
