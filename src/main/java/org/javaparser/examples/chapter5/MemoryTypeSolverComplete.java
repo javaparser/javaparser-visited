@@ -14,6 +14,7 @@ import org.junit.Test;
 import java.io.File;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MemoryTypeSolverComplete {
 
@@ -36,8 +37,8 @@ public class MemoryTypeSolverComplete {
 
         EasyMock.replay(otherClass);
 
-        SymbolReference<ResolvedTypeDeclaration> ref = context.solveType("Bar", memoryTypeSolver);
-        assertEquals(true, ref.isSolved());
+        SymbolReference<ResolvedTypeDeclaration> ref = context.solveType("Bar");
+        assertTrue(ref.isSolved());
         assertEquals("org.javaparser.examples.chapter5.Bar", ref.getCorrespondingDeclaration().getQualifiedName());
     }
 }
