@@ -29,14 +29,14 @@ public class LexicalPreservationComplete {
 
         myClass = cu.getClassByName("MyNewClassName").get();
         myClass.setName("MyNewClassName");
-        myClass.addModifier(Modifier.PUBLIC);
+        myClass.addModifier(Modifier.Keyword.PUBLIC);
         System.out.println(lpp.print(cu));
 
         System.out.println("----------------");
 
         myClass = cu.getClassByName("MyNewClassName").get();
         myClass.setName("MyNewClassName");
-        myClass.addModifier(Modifier.PUBLIC);
+        myClass.addModifier(Modifier.Keyword.PUBLIC);
         cu.setPackageDeclaration("org.javaparser.samples");
         System.out.println(lpp.print(cu));
     }
