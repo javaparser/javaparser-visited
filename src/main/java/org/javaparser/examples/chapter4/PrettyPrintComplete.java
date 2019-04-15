@@ -14,7 +14,8 @@ public class PrettyPrintComplete {
         myClass.addField("String", "foo");
 
         PrettyPrinterConfiguration conf = new PrettyPrinterConfiguration();
-        conf.setIndent(" ");
+        conf.setIndentSize(1);
+        conf.setIndentType(PrettyPrinterConfiguration.IndentType.SPACES);
         conf.setPrintComments(false);
         PrettyPrinter prettyPrinter = new PrettyPrinter(conf);
         System.out.println(prettyPrinter.print(myClass));

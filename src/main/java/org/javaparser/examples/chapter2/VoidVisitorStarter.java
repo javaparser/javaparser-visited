@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter2;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
 import java.io.FileInputStream;
@@ -11,7 +11,7 @@ public class VoidVisitorStarter {
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(new FileInputStream(FILE_PATH));
 
     }
 

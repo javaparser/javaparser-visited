@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter5;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.expr.AssignExpr;
 import com.github.javaparser.resolution.types.ResolvedType;
@@ -19,9 +19,11 @@ public class GetTypeOfReference {
         TypeSolver typeSolver = new CombinedTypeSolver();
 
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(typeSolver);
-        JavaParser.getStaticConfiguration().setSymbolResolver(symbolSolver);
+        StaticJavaParser
+                .getConfiguration()
+                .setSymbolResolver(symbolSolver);
 
-        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(new File(FILE_PATH));
 
         cu.findAll(AssignExpr.class).forEach(ae -> {
             ResolvedType resolvedType = ae.calculateResolvedType();

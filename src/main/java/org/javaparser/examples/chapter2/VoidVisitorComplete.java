@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter2;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitor;
@@ -16,7 +16,7 @@ public class VoidVisitorComplete {
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(new FileInputStream(FILE_PATH));
 
         VoidVisitor<?> methodNameVisitor = new MethodNamePrinter();
         methodNameVisitor.visit(cu, null);

@@ -19,7 +19,8 @@ public class PrettyPrintVisitorComplete {
         myClass.addAnnotation("MySecretAnnotation");
 
         PrettyPrinterConfiguration conf = new PrettyPrinterConfiguration();
-        conf.setIndent("  ");
+        conf.setIndentSize(2);
+        conf.setIndentType(PrettyPrinterConfiguration.IndentType.SPACES);
         conf.setPrintComments(false);
         conf.setVisitorFactory(prettyPrinterConfiguration -> new PrettyPrintVisitor(conf) {
 
