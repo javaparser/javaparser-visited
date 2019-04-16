@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CommentReporterStarter {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/samples/ReversePolishNotation.java";
+    private static final String FILE_PATH = "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
 
     public static void main(String[] args) throws Exception {
 
