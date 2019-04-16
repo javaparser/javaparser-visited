@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter5;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
@@ -17,11 +17,13 @@ public class ResolveMethodCalls {
         TypeSolver typeSolver = new ReflectionTypeSolver();
 
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(typeSolver);
-        JavaParser.getStaticConfiguration().setSymbolResolver(symbolSolver);
+        StaticJavaParser
+                .getConfiguration()
+                .setSymbolResolver(symbolSolver);
 
-        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(new File(FILE_PATH));
 
         cu.findAll(MethodCallExpr.class).forEach(mce ->
-                System.out.println(mce.resolveInvokedMethod().getQualifiedSignature()));
+                System.out.println(mce.resolve().getQualifiedSignature()));
     }
 }

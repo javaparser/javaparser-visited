@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter2;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
 import java.io.File;
@@ -13,7 +13,7 @@ public class CommentReporterComplete {
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(new File(FILE_PATH));
 
         List<CommentReportEntry> comments = cu.getAllContainedComments()
                 .stream()

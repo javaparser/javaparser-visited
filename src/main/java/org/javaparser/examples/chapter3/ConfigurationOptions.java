@@ -1,7 +1,7 @@
 package org.javaparser.examples.chapter3;
 
-import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParserConfiguration;
+import com.github.javaparser.StaticJavaParser;
 
 public class ConfigurationOptions {
 
@@ -11,7 +11,7 @@ public class ConfigurationOptions {
         ParserConfiguration parserConfiguration = new ParserConfiguration()
                 .setAttributeComments(false);
 
-        JavaParser.setStaticConfiguration(parserConfiguration);
+        StaticJavaParser.setConfiguration(parserConfiguration);
 
     }
 
@@ -20,6 +20,6 @@ public class ConfigurationOptions {
         ParserConfiguration parserConfiguration = new ParserConfiguration()
                 .setDoNotAssignCommentsPrecedingEmptyLines(true);
 
-        JavaParser.setStaticConfiguration(parserConfiguration);
+        StaticJavaParser.setConfiguration(parserConfiguration);
     }
 }

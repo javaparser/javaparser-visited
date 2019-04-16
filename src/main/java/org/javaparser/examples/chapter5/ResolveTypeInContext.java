@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter5;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.symbolsolver.JavaSymbolSolver;
@@ -27,9 +27,11 @@ public class ResolveTypeInContext {
         combinedSolver.add(javaParserTypeSolver);
 
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(combinedSolver);
-        JavaParser.getStaticConfiguration().setSymbolResolver(symbolSolver);
+        StaticJavaParser
+                .getConfiguration()
+                .setSymbolResolver(symbolSolver);
 
-        CompilationUnit cu = JavaParser.parse(new File(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(new File(FILE_PATH));
 
         FieldDeclaration fieldDeclaration = Navigator.findNodeOfGivenClass(cu, FieldDeclaration.class);
 

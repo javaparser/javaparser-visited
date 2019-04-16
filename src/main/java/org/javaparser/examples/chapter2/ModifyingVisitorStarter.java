@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter2;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 
 public class ModifyingVisitorStarter {
@@ -10,7 +10,7 @@ public class ModifyingVisitorStarter {
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = JavaParser.parse(FILE_PATH);
+        CompilationUnit cu = StaticJavaParser.parse(FILE_PATH);
     }
 
 }

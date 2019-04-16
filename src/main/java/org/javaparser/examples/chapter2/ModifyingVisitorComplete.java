@@ -1,6 +1,6 @@
 package org.javaparser.examples.chapter2;
 
-import com.github.javaparser.JavaParser;
+import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.expr.IntegerLiteralExpr;
@@ -17,7 +17,7 @@ public class ModifyingVisitorComplete {
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = JavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(new FileInputStream(FILE_PATH));
 
         ModifierVisitor<?> numericLiteralVisitor = new IntegerLiteralModifier();
         numericLiteralVisitor.visit(cu, null);
