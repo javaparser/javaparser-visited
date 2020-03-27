@@ -34,7 +34,8 @@ public class CommentGenerator {
         @Override
         public void visit(MethodDeclaration md, List<MethodDeclaration> collector) {
             super.visit(md, collector);
-            if(md.getJavadoc()!= null) {
+            // value == null
+            if (!md.getJavadoc().isPresent()) {
                 collector.add(md);
             }
         }
