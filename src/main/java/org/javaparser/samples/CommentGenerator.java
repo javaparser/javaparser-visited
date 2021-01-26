@@ -24,7 +24,9 @@ public class CommentGenerator {
         VoidVisitorAdapter<List<MethodDeclaration>> unDocumentedMethodCollector = new UnDocumentedMethodCollector();
         unDocumentedMethodCollector.visit(cu, methodDeclarations);
 
-        methodDeclarations.forEach(md -> md.setJavadocComment(generateJavaDoc(md)));
+        cu.findAll(MethodDeclaration.class).stream()
+                .filter(md -> !md.getJavadoc().isPresent())
+                .forEach(md -> md.setJavadocComment(generateJavaDoc(md)));
 
         System.out.println(cu.toString());
     }

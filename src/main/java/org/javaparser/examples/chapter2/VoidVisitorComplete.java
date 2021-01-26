@@ -18,13 +18,12 @@ public class VoidVisitorComplete {
 
         CompilationUnit cu = StaticJavaParser.parse(new FileInputStream(FILE_PATH));
 
-        VoidVisitor<?> methodNameVisitor = new MethodNamePrinter();
+        VoidVisitor<Void> methodNameVisitor = new MethodNamePrinter();
         methodNameVisitor.visit(cu, null);
         List<String> methodNames = new ArrayList<>();
         VoidVisitor<List<String>> methodNameCollector = new MethodNameCollector();
         methodNameCollector.visit(cu, methodNames);
         methodNames.forEach(n -> System.out.println("Method Name Collected: " + n));
-
     }
 
     private static class MethodNamePrinter extends VoidVisitorAdapter<Void> {

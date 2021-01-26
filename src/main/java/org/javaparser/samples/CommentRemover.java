@@ -4,7 +4,6 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.comments.Comment;
-import com.github.javaparser.ast.comments.LineComment;
 
 import java.io.File;
 import java.util.List;
@@ -20,7 +19,7 @@ public class CommentRemover {
         List<Comment> comments = cu.getAllContainedComments();
         List<Comment> unwantedComments = comments
                 .stream()
-                .filter(p -> !p.getCommentedNode().isPresent() || p instanceof LineComment)
+                .filter(p -> !p.getCommentedNode().isPresent() || p.isLineComment())
                 .collect(Collectors.toList());
         unwantedComments.forEach(Node::remove);
 

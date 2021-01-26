@@ -19,7 +19,7 @@ public class CommentReporterComplete {
                 .stream()
                 .map(p -> new CommentReportEntry(p.getClass().getSimpleName(),
                         p.getContent(),
-                        p.getRange().get().begin.line,
+                        p.getRange().map(r -> r.begin.line).orElse(-1),
                         !p.getCommentedNode().isPresent()))
                 .collect(Collectors.toList());
 
