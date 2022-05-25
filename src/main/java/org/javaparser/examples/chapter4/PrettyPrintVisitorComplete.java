@@ -6,10 +6,10 @@ import com.github.javaparser.ast.expr.MarkerAnnotationExpr;
 import com.github.javaparser.ast.expr.NormalAnnotationExpr;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitor;
-import com.github.javaparser.printer.PrettyPrintVisitor;
-import com.github.javaparser.printer.PrettyPrinter;
+import com.github.javaparser.printer.*;
 import com.github.javaparser.printer.configuration.Indentation;
 import com.github.javaparser.printer.configuration.PrettyPrinterConfiguration;
+import com.github.javaparser.printer.configuration.PrinterConfiguration;
 
 import java.util.function.Function;
 
@@ -26,7 +26,7 @@ public class PrettyPrintVisitorComplete {
         conf.setIndentSize(2);
         conf.setIndentType(Indentation.IndentType.SPACES);
         conf.setPrintComments(false);
-        Function<PrettyPrinterConfiguration, VoidVisitor<Void>> prettyPrinterFactory = prettyPrinterConfiguration -> new PrettyPrintVisitor(conf) {
+        Function<PrinterConfiguration, VoidVisitor<Void>> prettyPrinterFactory = (configuration) -> new DefaultPrettyPrinterVisitor(conf) {
             @Override
             public void visit(MarkerAnnotationExpr n, Void arg) {
                 // ignore
@@ -42,7 +42,7 @@ public class PrettyPrintVisitorComplete {
                 // ignore
             }
         };
-        PrettyPrinter prettyPrinter = new PrettyPrinter(conf, prettyPrinterFactory);
+        Printer prettyPrinter = new DefaultPrettyPrinter(prettyPrinterFactory, conf);
         System.out.println(prettyPrinter.print(myClass));
     }
 
