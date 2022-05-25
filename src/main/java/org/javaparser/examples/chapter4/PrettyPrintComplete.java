@@ -3,7 +3,8 @@ package org.javaparser.examples.chapter4;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.comments.LineComment;
 import com.github.javaparser.printer.PrettyPrinter;
-import com.github.javaparser.printer.PrettyPrinterConfiguration;
+import com.github.javaparser.printer.configuration.Indentation;
+import com.github.javaparser.printer.configuration.PrettyPrinterConfiguration;
 
 public class PrettyPrintComplete {
 
@@ -15,7 +16,7 @@ public class PrettyPrintComplete {
 
         PrettyPrinterConfiguration conf = new PrettyPrinterConfiguration();
         conf.setIndentSize(1);
-        conf.setIndentType(PrettyPrinterConfiguration.IndentType.SPACES);
+        conf.setIndentType(Indentation.IndentType.SPACES);
         conf.setPrintComments(false);
         PrettyPrinter prettyPrinter = new PrettyPrinter(conf);
         System.out.println(prettyPrinter.print(myClass));
