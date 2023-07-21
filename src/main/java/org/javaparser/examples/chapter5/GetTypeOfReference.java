@@ -20,14 +20,14 @@ public class GetTypeOfReference {
 
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(typeSolver);
         StaticJavaParser
-                .getConfiguration()
+                .getParserConfiguration()
                 .setSymbolResolver(symbolSolver);
 
         CompilationUnit cu = StaticJavaParser.parse(new File(FILE_PATH));
 
         cu.findAll(AssignExpr.class).forEach(ae -> {
             ResolvedType resolvedType = ae.calculateResolvedType();
-            System.out.println(ae.toString() + " is a: " + resolvedType);
+            System.out.println(ae + " is a: " + resolvedType);
         });
     }
 }

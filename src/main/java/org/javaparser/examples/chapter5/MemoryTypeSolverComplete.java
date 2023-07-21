@@ -8,6 +8,7 @@ import com.github.javaparser.resolution.declarations.ResolvedTypeDeclaration;
 import com.github.javaparser.resolution.model.SymbolReference;
 import com.github.javaparser.symbolsolver.javaparsermodel.contexts.CompilationUnitContext;
 import com.github.javaparser.symbolsolver.resolution.typesolvers.MemoryTypeSolver;
+import com.google.common.collect.Lists;
 import org.easymock.EasyMock;
 import org.junit.Test;
 
@@ -37,7 +38,7 @@ public class MemoryTypeSolverComplete {
 
         EasyMock.replay(otherClass);
 
-        SymbolReference<ResolvedTypeDeclaration> ref = context.solveType("Bar");
+        SymbolReference<ResolvedTypeDeclaration> ref = context.solveType("Bar", null);
         assertTrue(ref.isSolved());
         assertEquals("org.javaparser.examples.chapter5.Bar", ref.getCorrespondingDeclaration().getQualifiedName());
     }

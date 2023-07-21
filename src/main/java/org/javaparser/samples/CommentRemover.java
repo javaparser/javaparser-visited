@@ -23,7 +23,7 @@ public class CommentRemover {
                 .collect(Collectors.toList());
         unwantedComments.forEach(Node::remove);
 
-        System.out.println(cu.toString());
+        System.out.println(cu);
 
     }
 

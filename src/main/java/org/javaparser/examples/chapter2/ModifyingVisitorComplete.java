@@ -6,6 +6,8 @@ import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.visitor.ModifierVisitor;
 
 import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
 public class ModifyingVisitorComplete {
@@ -16,7 +18,7 @@ public class ModifyingVisitorComplete {
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = StaticJavaParser.parse(new FileInputStream(FILE_PATH));
+        CompilationUnit cu = StaticJavaParser.parse(Files.newInputStream(Paths.get(FILE_PATH)));
 
         ModifierVisitor<?> numericLiteralVisitor = new IntegerLiteralModifier();
         numericLiteralVisitor.visit(cu, null);

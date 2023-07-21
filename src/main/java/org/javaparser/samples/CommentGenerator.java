@@ -28,7 +28,7 @@ public class CommentGenerator {
                 .filter(md -> !md.getJavadoc().isPresent())
                 .forEach(md -> md.setJavadocComment(generateJavaDoc(md)));
 
-        System.out.println(cu.toString());
+        System.out.println(cu);
     }
 
     private static class UnDocumentedMethodCollector extends VoidVisitorAdapter<List<MethodDeclaration>> {

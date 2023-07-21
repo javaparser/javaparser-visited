@@ -18,7 +18,7 @@ public class ResolveMethodCalls {
 
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(typeSolver);
         StaticJavaParser
-                .getConfiguration()
+                .getParserConfiguration()
                 .setSymbolResolver(symbolSolver);
 
         CompilationUnit cu = StaticJavaParser.parse(new File(FILE_PATH));
