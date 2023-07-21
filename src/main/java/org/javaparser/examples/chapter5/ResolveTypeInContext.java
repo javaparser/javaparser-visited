@@ -20,7 +20,6 @@ public class ResolveTypeInContext {
     public static void main(String[] args) throws Exception {
         TypeSolver reflectionTypeSolver = new ReflectionTypeSolver();
         TypeSolver javaParserTypeSolver = new JavaParserTypeSolver(new File(SRC_PATH));
-        reflectionTypeSolver.setParent(reflectionTypeSolver);
 
         CombinedTypeSolver combinedSolver = new CombinedTypeSolver();
         combinedSolver.add(reflectionTypeSolver);
@@ -28,12 +27,12 @@ public class ResolveTypeInContext {
 
         JavaSymbolSolver symbolSolver = new JavaSymbolSolver(combinedSolver);
         StaticJavaParser
-                .getConfiguration()
+                .getParserConfiguration()
                 .setSymbolResolver(symbolSolver);
 
         CompilationUnit cu = StaticJavaParser.parse(new File(FILE_PATH));
 
-        FieldDeclaration fieldDeclaration = Navigator.findNodeOfGivenClass(cu, FieldDeclaration.class);
+        FieldDeclaration fieldDeclaration = Navigator.demandNodeOfGivenClass(cu, FieldDeclaration.class);
 
         System.out.println("Field type: " + fieldDeclaration.getVariables().get(0).getType()
                 .resolve().asReferenceType().getQualifiedName());
