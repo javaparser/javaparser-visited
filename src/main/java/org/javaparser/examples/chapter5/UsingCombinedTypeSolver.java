@@ -14,9 +14,9 @@ public class UsingCombinedTypeSolver {
     public static void main(String[] args) throws IOException {
         TypeSolver myTypeSolver = new CombinedTypeSolver(
                 new ReflectionTypeSolver(),
-                JarTypeSolver.getJarTypeSolver("jars/library1.jar"),
-                JarTypeSolver.getJarTypeSolver("jars/library2.jar"),
-                JarTypeSolver.getJarTypeSolver("jars/library3.jar"),
+                new JarTypeSolver("jars/library1.jar"),
+                new JarTypeSolver("jars/library2.jar"),
+                new JarTypeSolver("jars/library3.jar"),
                 new JavaParserTypeSolver(new File("src/main/java")),
                 new JavaParserTypeSolver(new File("generated_code"))
         );
