@@ -8,14 +8,16 @@ public class UsingTypeSolver {
 
     private static void showReferenceTypeDeclaration(ResolvedReferenceTypeDeclaration resolvedReferenceTypeDeclaration){
 
-        System.out.println(String.format("== %s ==",
-                resolvedReferenceTypeDeclaration.getQualifiedName()));
+        System.out.printf("== %s ==%n", resolvedReferenceTypeDeclaration
+                .getQualifiedName());
         System.out.println(" fields:");
-        resolvedReferenceTypeDeclaration.getAllFields().forEach(f ->
-                System.out.println(String.format("    %s %s", f.getType(), f.getName())));
+        resolvedReferenceTypeDeclaration.getAllFields()
+                .forEach(f -> System.out.printf("    %s %s%n", f.getType(),
+                        f.getName()));
         System.out.println(" methods:");
-        resolvedReferenceTypeDeclaration.getAllMethods().forEach(m ->
-                System.out.println(String.format("    %s", m.getQualifiedSignature())));
+        resolvedReferenceTypeDeclaration.getAllMethods()
+                .forEach(m -> System.out.printf("    %s%n",
+                        m.getQualifiedSignature()));
         System.out.println();
     }
 

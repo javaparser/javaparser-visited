@@ -11,7 +11,8 @@ import java.io.File;
 
 public class ResolveMethodCalls {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/chapter5/A.java";
+    private static final String FILE_PATH
+            = "src/main/java/org/javaparser/examples/chapter5/A.java";
 
     public static void main(String[] args) throws Exception {
         TypeSolver typeSolver = new ReflectionTypeSolver();

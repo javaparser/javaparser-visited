@@ -13,7 +13,8 @@ import java.io.FileNotFoundException;
 
 public class GetTypeOfReference {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/examples/chapter5/Bar.java";
+    private static final String FILE_PATH =
+            "src/main/java/org/javaparser/examples/chapter5/Bar.java";
 
     public static void main(String[] args) throws FileNotFoundException {
         TypeSolver typeSolver = new CombinedTypeSolver();

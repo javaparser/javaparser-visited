@@ -12,13 +12,16 @@ import java.util.regex.Pattern;
 
 public class ModifyingVisitorComplete {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
+    private static final String FILE_PATH =
+            "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
 
-    private static final Pattern LOOK_AHEAD_THREE = Pattern.compile("(\\d)(?=(\\d{3})+$)");
+    private static final Pattern LOOK_AHEAD_THREE =
+            Pattern.compile("(\\d)(?=(\\d{3})+$)");
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = StaticJavaParser.parse(Files.newInputStream(Paths.get(FILE_PATH)));
+        CompilationUnit cu = StaticJavaParser
+                .parse(Files.newInputStream(Paths.get(FILE_PATH)));
 
         ModifierVisitor<?> numericLiteralVisitor = new IntegerLiteralModifier();
         numericLiteralVisitor.visit(cu, null);

@@ -11,11 +11,13 @@ import java.util.stream.Collectors;
 
 public class CommentReporterComplete {
 
-    private static final String FILE_PATH = "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
+    private static final String FILE_PATH =
+            "src/main/java/org/javaparser/samples/ReversePolishNotation.java";
 
     public static void main(String[] args) throws Exception {
 
-        CompilationUnit cu = StaticJavaParser.parse(Files.newInputStream(Paths.get(FILE_PATH)));
+        CompilationUnit cu = StaticJavaParser
+                .parse(Files.newInputStream(Paths.get(FILE_PATH)));
 
         List<CommentReportEntry> comments = cu.getAllContainedComments()
                 .stream()
