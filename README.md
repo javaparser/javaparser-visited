@@ -1,6 +1,6 @@
 # JavaParser:Visited
 
-[![Build Status](https://travis-ci.org/javaparser/javaparser-visited.svg?branch=master)](https://travis-ci.org/javaparser/javaparser-visited)
+![build status](https://github.com/javaparser/javaparser-visited/actions/workflows/maven-package.yml/badge.svg?branch=master)
 
 This project contains code samples for the JavaParser book on [LeanPub.com](https://leanpub.com/javaparservisited/overview)
 
