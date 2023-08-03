@@ -1,6 +1,7 @@
 # JavaParser:Visited
 
-![build status](https://github.com/javaparser/javaparser-visited/actions/workflows/maven-package.yml/badge.svg?branch=master)
+[![build status](https://github.com/javaparser/javaparser-visited/actions/workflows/maven-package.yml/badge.svg?branch=master)](https://github.com/javaparser/javaparser-visited/actions)
+
 
 This project contains code samples for the JavaParser book on [LeanPub.com](https://leanpub.com/javaparservisited/overview)
 
